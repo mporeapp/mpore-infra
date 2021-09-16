@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY, -- ID with increasing numerical sequence (1, 2, 3...)
     username VARCHAR(32) NOT NULL,
     email VARCHAR(128) NOT NULL,
+    bio VARCHAR(128) DEFAULT NULL,
     hashed_password VARCHAR(64) NOT NULL,
     keyring VARCHAR(64) DEFAULT NULL -- Account recovery word sequence. These are going to be stored hashed in sha256. 
 );
