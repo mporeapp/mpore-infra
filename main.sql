@@ -1,3 +1,4 @@
+CREATE DATABASE mpore;
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY, -- ID with increasing numerical sequence (1, 2, 3...)
     username VARCHAR(32) NOT NULL,
