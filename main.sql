@@ -1,15 +1,15 @@
 CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY, -- ID with increasing numerical sequence (1, 2, 3...)
+    id VARCHAR(36) DEFAULT gen_random_uuid(), -- UUID with random characters. (db7018ff-5403-4b29-9e29-ec578f9a5ed3)
     username VARCHAR(32) NOT NULL,
     email VARCHAR(128) NOT NULL,
     bio VARCHAR(128) DEFAULT NULL,
     password VARCHAR(256) NOT NULL,
-    keyring VARCHAR(64) DEFAULT NULL -- Account recovery word sequence. These are going to be stored hashed in sha256.
+    keyring VARCHAR(256) DEFAULT NULL -- Account recovery word sequence. These are going to be stored hashed in sha256.
     created_at TIMESTAMP DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS posts(
-    id VARCHAR(36) DEFAULT gen_random_uuid(), -- UUID with random characters. (db7018ff-5403-4b29-9e29-ec578f9a5ed3)
+    id VARCHAR(36) DEFAULT gen_random_uuid(),
     created_at TIMESTAMP DEFAULT now(),
     author INT NOT NULL,
 	title VARCHAR(64) DEFAULT NULL,
