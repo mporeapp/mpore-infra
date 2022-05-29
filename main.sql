@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-    id VARCHAR(36) DEFAULT gen_random_uuid(), -- UUID with random characters. (db7018ff-5403-4b29-9e29-ec578f9a5ed3)
+    id UUID DEFAULT gen_random_uuid(), -- UUID with random characters. (db7018ff-5403-4b29-9e29-ec578f9a5ed3)
     username VARCHAR(32) NOT NULL,
     email VARCHAR(128) NOT NULL,
     bio VARCHAR(128) DEFAULT NULL,
@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS posts(
-    id VARCHAR(36) DEFAULT gen_random_uuid(),
+    id UUID DEFAULT gen_random_uuid(),
     created_at TIMESTAMP DEFAULT now(),
     author INT NOT NULL,
-	title VARCHAR(64) DEFAULT NULL,
-	content VARCHAR(1024) NOT NULL,
+    title VARCHAR(64) DEFAULT NULL,
+    content VARCHAR(1024) NOT NULL,
     posted_in INT DEFAULT NULL,
     replying_to VARCHAR(36) DEFAULT NULL
 );
