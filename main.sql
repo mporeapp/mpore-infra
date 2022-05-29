@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS posts(
     id UUID DEFAULT gen_random_uuid(),
     created_at TIMESTAMP DEFAULT now(),
-    author INT NOT NULL,
+    author UUID NOT NULL,
     title VARCHAR(64) DEFAULT NULL,
     content VARCHAR(1024) NOT NULL,
     posted_in INT DEFAULT NULL,
