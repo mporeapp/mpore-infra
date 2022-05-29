@@ -3,8 +3,9 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(32) NOT NULL,
     email VARCHAR(128) NOT NULL,
     bio VARCHAR(128) DEFAULT NULL,
-    hashed_password VARCHAR(64) NOT NULL,
-    keyring VARCHAR(64) DEFAULT NULL -- Account recovery word sequence. These are going to be stored hashed in sha256. 
+    password VARCHAR(256) NOT NULL,
+    keyring VARCHAR(64) DEFAULT NULL -- Account recovery word sequence. These are going to be stored hashed in sha256.
+    created_at TIMESTAMP DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS posts(
@@ -25,4 +26,4 @@ CREATE TABLE IF NOT EXISTS following (
 CREATE TABLE IF NOT EXISTS likes (
     user_id INT NOT NULL,
     post_id INT NOT NULL
-)
+);
